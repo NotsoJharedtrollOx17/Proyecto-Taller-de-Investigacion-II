@@ -22,18 +22,10 @@ function App() {
       <div>
         <h1>Análisis de ROM para Hang Clean y Power Clean por medio de archivos bvh</h1>
       </div>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
       <div className='card'>
-      <button onClick={() => fetchBackendRequest()}>
-          llamar al backend!
-      </button>
-        <h1>{test}</h1>
+        <Visualizer/>
+
       </div>
-      <Visualizer/>
       <RomLabels/>
     </>
   )
