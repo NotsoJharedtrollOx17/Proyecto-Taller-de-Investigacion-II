@@ -1,19 +1,26 @@
-import { useRef, useState } from 'react';
-import { Canvas, useLoader} from '@react-three/fiber';
+import { useRef, useState, useEffect } from 'react';
+import { Canvas, useLoader, useFrame } from '@react-three/fiber';
 import { DynamicReadUsage } from 'three';
+import PropTypes from 'prop-types';
 
-export default function Visualizer() {
+export default function Visualizer({ props }) {
+    const ref = useRef()
+
+    useFrame((_, isVisible) => {
+        if (isVisible) {
+            ref.current.rotation.x += 1 * 0.001 * 10;
+            ref.current.rotation.y += 0.5 * 0.001 * 10;
+        }
+    })
+    
     return(
-        <Canvas camera={{
-            position: [3, 2, 3],
-            //rotation: [-0.2, 0, 0.5]
-        }}
-        >
-            <axesHelper args={[5]}/>
-            <gridHelper args={[10, 10, 'black', 'grey']}/>
-                <mesh>
-                    <boxBufferGeometry/>
-                </mesh>
-        </Canvas>
+        <mesh {...props} ref={ref}>
+            <boxGeometry/>
+            <meshBasicMaterial color={0x00ff00} wireframe />
+        </mesh>
     )
 }
+
+Visualizer.propTypes = {
+    isVisible: PropTypes.bool.isRequired
+};
