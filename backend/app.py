@@ -24,6 +24,16 @@ The main differences between these two requests are:
 • GET requests are generally considered to be less secure, because the data is sent in the URL, which can be intercepted and viewed by third parties. POST requests are generally considered to be more secure, 
 because the data is sent in the request body, which is not visible in the URL.
 '''
+
+# ? http://graphics.cs.cmu.edu/nsp/course/15464-s20/www/assignments/15464-assignment1.pdf
+# ? http://www.darwin3d.com/gamedev/articles/col0198.pdf
+# ? https://github.com/rpldy/react-uploady
+# ? https://github.com/vdbalbom/BVHsmooth
+# ? https://github.com/OlafHaag/bvh-toolbox
+# ? https://github.com/yangyanzhe/assignment1
+
+# TODO integrate the animation generator of 'assigment1' as a subprocess
+
 with open('./walk1.bvh') as file:
     bvh_data = Bvh(file.read())
 
